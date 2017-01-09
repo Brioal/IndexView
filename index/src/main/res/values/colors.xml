@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="index_color_normal">#87ffffff</color>
+    <color name="index_color_avaliable">#ffffff</color>
+</resources>
