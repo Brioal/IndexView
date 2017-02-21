@@ -78,7 +78,7 @@ public class LeftIndex extends LinearLayout implements View.OnClickListener {
                 tv.setTextColor(mColorNormal);
             }
             LayoutParams tvParams = new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            tv.setPadding(3, 3, 3, 3);
+            tvParams.weight = 1;
             addView(tv, tvParams);
         }
     }
