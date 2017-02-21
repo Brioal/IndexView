@@ -79,13 +79,11 @@ public class IndexListView extends RelativeLayout implements OnIndexClickListene
             //如果是第一个数据，添加一个Index
             if (i == 0) {
                 avaliableIndex.add(mList.get(0).getIndex());
-                mList.get(0).setHead(true);
             }
             //如果当前数据的Index跟下一个的Index不一样，那么就在这个之后添加一个Index
             if (i + 1 < mList.size() && mList.get(i + 1) != null) {
                 if (mList.get(i).getIndex() != mList.get(i + 1).getIndex()) {
                     avaliableIndex.add(mList.get(i + 1).getIndex());
-                    mList.get(i + 1).setHead(true);
                 }
             }
         }
@@ -147,7 +145,7 @@ public class IndexListView extends RelativeLayout implements OnIndexClickListene
         int position = -1;
         //跳转到指定的position
         for (int i = 0; i < mList.size(); i++) {
-            if (mList.get(i).getIndex() == ch && mList.get(i).isHead()) {
+            if (mList.get(i).getIndex() == ch) {
                 position = i;
                 break;
             }

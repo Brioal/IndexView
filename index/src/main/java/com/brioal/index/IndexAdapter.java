@@ -56,7 +56,11 @@ public abstract class IndexAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemViewType(int position) {
-        if (mList.get(position).isHead()) {
+        if (position == 0) {
+            return TYPE_HEAD;
+        }
+        if (position + 1 < getItemCount() && mList.get(position-1).getIndex() != mList.get(position).getIndex()) {
+            //不是最后一个
             return TYPE_HEAD;
         }
         return TYPE_NORMAL;

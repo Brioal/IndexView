@@ -9,7 +9,7 @@ import com.brioal.index.IndexBean;
  * Created by brioal on 17-1-8.
  */
 
-public class ContactBean extends IndexBean {
+public class ContactBean implements IndexBean {
     private String mName;
     private String mPhone;
 
@@ -19,7 +19,6 @@ public class ContactBean extends IndexBean {
     public ContactBean(String name, String phone) {
         mName = name;
         mPhone = phone;
-        setIndex();
     }
 
     public String getName() {
@@ -28,7 +27,6 @@ public class ContactBean extends IndexBean {
 
     public void setName(String name) {
         mName = name;
-        setIndex();
     }
 
     public String getPhone() {
@@ -39,8 +37,9 @@ public class ContactBean extends IndexBean {
         mPhone = phone;
     }
 
+
     @Override
-    public void setIndex() {
-        mIndex = ChineseToCharUtil.getFirstLetter(mName.charAt(0));
+    public char getIndex() {
+        return ChineseToCharUtil.getFirstLetter(mName.charAt(0));
     }
 }
