@@ -102,7 +102,7 @@ public class IndexListView extends RelativeLayout implements OnIndexClickListene
     }
 
     //设置列表项的Adapter
-    public IndexListView setAdapter(IndexAdapter adapter) {
+    public IndexListView setAdapter(IndexAdapter<RecyclerView.ViewHolder> adapter) {
         //Adapter数据添加
         adapter.setData(mList);
         //设置到RecyclerView

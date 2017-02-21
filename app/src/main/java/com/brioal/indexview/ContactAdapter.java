@@ -1,12 +1,14 @@
 package com.brioal.indexview;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.brioal.index.IndexAdapter;
-import com.brioal.index.IndexBean;
 
 /**
  * email :brioal@foxmail.com
@@ -16,50 +18,43 @@ import com.brioal.index.IndexBean;
 
 public class ContactAdapter extends IndexAdapter {
 
+
     public ContactAdapter(Context context) {
         super(context);
     }
 
     @Override
-    public void bindNormalView(View rootView, IndexBean bean) {
-        TextView tvName = (TextView) rootView.findViewById(R.id.item_normal_tv_name);
-        TextView tvPhone = (TextView) rootView.findViewById(R.id.item_normal_tv_phone);
-        final ContactBean contactBean = (ContactBean) bean;
-        tvName.setText(contactBean.getName());
-        tvPhone.setText(contactBean.getPhone());
-        rootView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(mContext, contactBean.getName(), Toast.LENGTH_SHORT).show();
-            }
-        });
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new ContactViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_normal, parent, false));
     }
 
     @Override
-    public int getNormalLayoutResID() {
-        return R.layout.item_normal;
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        if (holder instanceof ContactViewHolder) {
+            ((ContactViewHolder) holder).bindView((ContactBean) mList.get(position));
+        }
     }
 
-    @Override
-    public void bindHeadView(View rootView, IndexBean bean) {
-        TextView tvIndex = (TextView) rootView.findViewById(R.id.item_head_tv_index);
-        TextView tvName = (TextView) rootView.findViewById(R.id.item_head_tv_name);
-        TextView tvPhone = (TextView) rootView.findViewById(R.id.item_head_tv_phone);
-        final ContactBean contactBean = (ContactBean) bean;
-        tvIndex.setText(contactBean.getIndex()+"");
-        tvName.setText(contactBean.getName());
-        tvPhone.setText(contactBean.getPhone());
+    class ContactViewHolder extends RecyclerView.ViewHolder {
+        View mItemView;
 
-        rootView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(mContext, contactBean.getName(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
+        public ContactViewHolder(View itemView) {
+            super(itemView);
+            mItemView = itemView;
+        }
 
-    @Override
-    public int getHeadLayoutResID() {
-        return R.layout.item_head;
+        public void bindView(ContactBean bean) {
+            TextView tvName = (TextView) mItemView.findViewById(R.id.item_normal_tv_name);
+            TextView tvPhone = (TextView) mItemView.findViewById(R.id.item_normal_tv_phone);
+            final ContactBean contactBean = (ContactBean) bean;
+            tvName.setText(contactBean.getName());
+            tvPhone.setText(contactBean.getPhone());
+            mItemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(mContext, contactBean.getName(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 }
