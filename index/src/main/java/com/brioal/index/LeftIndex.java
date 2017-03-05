@@ -23,6 +23,7 @@ public class LeftIndex extends LinearLayout implements View.OnClickListener {
 
     public LeftIndex(Context context) {
         super(context);
+        setPadding(20,20,20,20);
     }
 
 
