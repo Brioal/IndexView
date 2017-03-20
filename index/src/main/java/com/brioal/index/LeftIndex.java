@@ -2,6 +2,7 @@ package com.brioal.index;
 
 import android.content.Context;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -23,7 +24,7 @@ public class LeftIndex extends LinearLayout implements View.OnClickListener {
 
     public LeftIndex(Context context) {
         super(context);
-        setPadding(20,20,20,20);
+
     }
 
 
@@ -63,7 +64,7 @@ public class LeftIndex extends LinearLayout implements View.OnClickListener {
         //设置居中
         setGravity(Gravity.CENTER);
         //设置Padding和Margin
-        setPadding(5, 5, 5, 5);
+//        setPadding(5, 5, 5, 5);
         //添加数据
         for (int i = 'A' - 1; i <= 'Z'; i++) {
             char index = (i == 'A' - 1) ? '#' : (char) i;
@@ -78,6 +79,7 @@ public class LeftIndex extends LinearLayout implements View.OnClickListener {
                 //不包含
                 tv.setTextColor(mColorNormal);
             }
+            tv.setPadding(10,3,10,3);
             LayoutParams tvParams = new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             tvParams.weight = 1;
             addView(tv, tvParams);
@@ -91,5 +93,10 @@ public class LeftIndex extends LinearLayout implements View.OnClickListener {
         if (mIndexClickListener != null) {
             mIndexClickListener.click(index);
         }
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        return true;
     }
 }

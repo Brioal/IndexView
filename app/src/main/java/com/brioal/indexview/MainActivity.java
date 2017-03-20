@@ -28,6 +28,18 @@ public class MainActivity extends AppCompatActivity {
         list.add(new ContactBean("爱的", "312312"));
         list.add(new ContactBean("青岛市", "4112"));
         list.add(new ContactBean("包含", "31"));
+        list.add(new ContactBean("王五", "4233"));
+        list.add(new ContactBean("的法师大", "312312"));
+        list.add(new ContactBean("全文企鹅要", "31231"));
+        list.add(new ContactBean("爱的", "312312"));
+        list.add(new ContactBean("青岛市", "4112"));
+        list.add(new ContactBean("包含", "31"));
+        list.add(new ContactBean("王五", "4233"));
+        list.add(new ContactBean("的法师大", "312312"));
+        list.add(new ContactBean("全文企鹅要", "31231"));
+        list.add(new ContactBean("爱的", "312312"));
+        list.add(new ContactBean("青岛市", "4112"));
+        list.add(new ContactBean("包含", "31"));
         ContactAdapter adapter = new ContactAdapter(this);
         mListView.setData(list).setAdapter(adapter).isIndexBG(true).build();
     }

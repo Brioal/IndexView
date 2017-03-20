@@ -180,6 +180,7 @@ public class IndexListView extends RelativeLayout implements OnIndexClickListene
             //这里这个变量是用在RecyclerView滚动监听里面的
             isMove = true;
         }
-
     }
+
+
 }
