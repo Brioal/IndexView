@@ -59,6 +59,8 @@ public class LeftIndex extends LinearLayout implements View.OnClickListener {
 
 
     private void initData() {
+        //清空原有内容
+        removeAllViews();
         //设置垂直布局
         setOrientation(LinearLayout.VERTICAL);
         //设置居中
