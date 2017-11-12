@@ -113,6 +113,8 @@ public class IndexListView extends RelativeLayout implements OnIndexClickListene
 
     //最后数据集成
     public void build() {
+        //清空所有
+        removeAllViews();
         mLeftIndex.build();
         //添加RecyclerView到View
         RelativeLayout.LayoutParams recyclerParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
